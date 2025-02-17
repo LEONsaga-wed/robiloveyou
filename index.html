@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry My Love</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            padding: 50px;
+            position: relative;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+            display: inline-block;
+            max-width: 500px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 36px;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+        .click-me {
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            animation: floatAround 3s infinite ease-in-out;
+        }
+        @keyframes floatAround {
+            0% { transform: translate(-20px, -20px); }
+            25% { transform: translate(20px, -10px); }
+            50% { transform: translate(10px, 20px); }
+            75% { transform: translate(-10px, 10px); }
+            100% { transform: translate(-20px, -20px); }
+        }
+        .hearts {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: floatHearts 3s infinite linear;
+            background-image: url('heart.png');
+            background-size: cover;
+        }
+        @keyframes floatHearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        audio, video {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'hearts';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        window.onload = createHearts;
+    </script>
+    <audio autoplay loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1>I'm So Sorry, My Love</h1>
+        <p>Hey beautful, i know i made you mad so I thought why not create a website for you to show how sorry I am. it also has the 3D flower i created for you (aswr it looked way cooler before my laptop crushed) anyways I meant not be super well off but this is my own special way of making it up to you, i love you  ❤️</p>
+        <button onclick="window.location.href='celebration.html'">
+            <span class="click-me">Click me!</span>
+            Forgive Me ❤️
+        </button>
+        <audio autoplay loop>
+            <source src="apology-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <video controls autoplay loop>
+            <source src="apology-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container">
+        <h2>Stay Ready</h2>
+        <audio controls autoplay>
+            <source src="special-song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</body>
+</html>

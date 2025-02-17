@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgiveness Celebration 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            padding: 50px;
+            position: relative;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+            display: inline-block;
+            max-width: 500px;
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 36px;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        .celebrate {
+            font-size: 50px;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4081;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: fall 3s infinite linear;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .hearts {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: floatHearts 3s infinite linear;
+            background-image: url('heart.png');
+            background-size: cover;
+        }
+        @keyframes floatHearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        video {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        .options {
+            display: none;
+            margin-top: 20px;
+        }
+        .option-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .option-button:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+        .result {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.backgroundColor = ['#ff4081', '#ffeb3b', '#4caf50', '#2196f3'][Math.floor(Math.random() * 4)];
+                document.body.appendChild(confetti);
+            }
+        }
+        function createHearts() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'hearts';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+        function showResult(option) {
+            let resultText = option === 'A' ? 'You chose flowers! 🌸' : 'You chose a promise ring! 💍';
+            document.getElementById('result').innerText = resultText;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('options').style.display = 'none';
+        }
+        window.onload = function() {
+            createConfetti();
+            createHearts();
+        };
+    </script>
+    <div class="container">
+        <h1>Hooray! You Forgave Me! 🎉</h1>
+        <p>You're the best! Thank you for your love and Understanding. ❤️</p>
+        <p class="celebrate">🥳🎊🎈</p>
+        <button class="option-button" onclick="showOptions()">Choose Your Gift</button>
+        <div id="options" class="options">
+            <button class="option-button" onclick="showResult('A')">A</button>
+            <button class="option-button" onclick="showResult('B')">B</button>
+        </div>
+        <div id="result" class="result"></div>
+        <video controls autoplay loop>
+            <source src="celebration-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
